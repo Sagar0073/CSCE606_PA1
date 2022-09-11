@@ -60,15 +60,21 @@ end
 # Part 2
 
 def hello(name)
+  return "Hello, " + name
   # YOUR CODE HERE
 end
 
 def starts_with_consonant?(string)
+  return (string.match(/\A[a-zA-Z]/) and !string.match(/\A[aeiouAEIOU]/))
   # YOUR CODE HERE
 end
 
 def binary_multiple_of_4?(string)
-  # YOUR CODE HERE
+  if (string.match(/\D/) or string.empty?)
+    return false
+  end
+  num = string.to_i
+  return num%4 == 0
 end
 
 # Part 3

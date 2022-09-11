@@ -81,5 +81,37 @@ end
 
 # Object representing a book
 class BookInStock
+  def initialize(isbn, price)
+    if price <= 0
+      raise ArgumentError.new("price can't be negative")
+    end
+    
+    if isbn.empty?
+      raise ArgumentError.new("isbn can't be empty")
+    end
+
+    @isbn = isbn
+    @price = price
+  end
+
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+
+  def isbn
+    @isbn
+  end
+
+  def price=(price)
+    @price = price
+  end
+  
+  def price
+    @price
+  end
+
+  def price_as_string
+    return "$"+(sprintf('%.2f', @price)).to_s
+  end
   # YOUR CODE HERE
 end
